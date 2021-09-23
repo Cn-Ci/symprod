@@ -1,0 +1,8 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+# user_show:
+#     path:      /user/show/{email}
+#     defaults:  { _controller: UserController:index }
+#     requirements:
+#         number: \d+

@@ -1,0 +1,20 @@
+{% extends 'baseChadprod.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+    <h1>Categorie</h1>
+    <table class="table table-striped table-info text-center my-4">
+        <tbody>
+            <tr>
+                <th><h4>Libelle</h4></th>
+            </tr>
+            <tr>
+                <td>{{ categorie.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <center>
+        <a class="btn btn-info" href="{{ path('categorie_index') }}">back to list</a>
+    </center>
+{% endblock %}

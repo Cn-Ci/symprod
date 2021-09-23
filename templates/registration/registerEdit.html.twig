@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modification du profil {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="text-center my-5">Modifier votre profil ici </h1>
+
+        {{ form_start(form) }}
+
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info rounded">
+                    <h2>Informations générales</h2>
+                    <hr>
+                        {{ form_row(form.nom) }}
+                        {{ form_row(form.prenom) }}
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.dateAnniversaire) }}
+                        {{ form_row(form.picture) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-info rounded">
+                        <h2>Détails</h2>
+                        <hr>
+                        {{ form_row(form.introduction) }}
+                        {{ form_row(form.description) }}
+                    </div>
+                </div>
+            </div>
+             <div class="alert alert-success rounded clearfix">
+                <h3 class="alert-heading">Modifier mon profil !</h3>
+                <p>Si vous avez fini vos modification, vous pouvez les sauvegarder ! </p>
+                <button type="submit" class="btn btn-primary rounded p-2 float-right">
+                    <i class="fas fa-save"></i> 
+                    Enregister les Modifications
+                </button>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </center>
+</div>
+
+{% endblock %}

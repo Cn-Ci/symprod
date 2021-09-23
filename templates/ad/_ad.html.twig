@@ -1,0 +1,33 @@
+{% set url = path('symprod_show', {'slug': ad.slug }) %}
+<div class="col-md-4">
+    <div class="card bg-light mb-4">
+        <div class="card-heeder text-center">
+            {{ ad.rooms }} chambres , <strong> {{ ad.price | number_format(2, ',' , ' ')}} € / nuit</strong><br>
+            {% if ad.comments |length > 0 %}
+                {% include 'SymprodPartials/rating.html.twig' with {'rating' : ad.avgRatings} %}
+            {% else %}
+            <small>Pas encore noté</small>
+            {% endif %}
+        </div>
+        <a href="{{ url }}">
+            <img src= "http://placehold.it/500x400" alt="image"
+            style="height: 200px; width: 100%; display: block">
+        </a>
+
+        <div class="card-body">
+            <h4 class="card-title"> 
+                <a href="{{ url }}">
+                    {{ ad.title}}
+                </a>
+            </h4>
+            <p class="card-text">
+                    {{ ad.introduction }}
+            </p>
+            <a href="{{ url }}" class="btn btn-info rounded p-1 m-1 float-right">En savoir plus !</a>
+            {% if app.user and app.user == ad.author %}
+                <a href="{{ path('symprod_edit', {'slug' : ad.slug })}}" class="btn btn-warning rounded p-1 m-1 float-right">Modifier l'annonce</a>
+                <a href="{{ path('symprod_delete', {'slug' : ad.slug })}}" class="btn btn-danger rounded p-1 m-1 float-right" onclick="return confirm(`Êtes vous sur de vouloir supprimer l'annonce : {{ ad.title }} ?`)">Supprimer l'annonce</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

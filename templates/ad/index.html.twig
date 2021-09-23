@@ -1,0 +1,48 @@
+ {% extends 'baseSymprod.html.twig' %}
+
+{% block title %}Bienvenue sur le meilleur site de location {% endblock %}
+{% block body %}
+ <div class="container">
+    <div class="jumbotron mt-3">
+        <h1 class="display-3">Bienvenue sur SymProd</h1>
+        <p class="lead">Nous mettons en relation des locations d'appartements sur ce site afin
+        de vous montrer les nouveautés</p>
+        <hr class="my-4">
+        <p>Vous êtes passionné de vacances ? Ce site est fait pour vous !</p>
+        <p class="lead">
+            <a href="" class="btn btn-primary btn-lg" role="button">Voir les appartements</a>   
+        </p>
+    </div>
+    <h2 class="h1 my-5">Nos appartements stars</h2>
+
+    <div class="row">
+        {% for data in ads %}
+            {% include 'ad/_ad.html.twig' with {'ad' : data.annonce} %}
+        {% endfor %}
+    </div>
+
+    <h2 class="h1 my-5">Nos Acheteurs stars</h2>
+
+    <div class="row">
+    {% for data in users %}
+    {% set d = data.user %}
+        <div class="col">
+            <div class="card border-info mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">{{ d.prenom }}</h4>
+                    <hr>
+                    <div class="card-text">
+                        <img src="http://placehold.it/64x64" alt="image de {{ d.prenom }}" class="float-left mr-3">
+                        <p>{{ d.introduction }}</p>
+                        <a href="{{ path('user_show', {'slug' : d.slug })}}" class="btn btn-success float-right">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    {% endfor %}       
+    </div>
+
+ </div>
+    
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error is defined %}
+        <div class="alert alert-danger" role="alert"> {{ error }}</div>
+    {% endif %}
+
+     <div class="jumbotron mt-3">
+     <center>
+        <h1 class="display-3">Bienvenue sur SymProd &amp; Chadprod</h1>
+        <p class="lead">Nous vous proposons de visiter deux projets sur un unique projet symfony</p>
+        <hr class="my-4">
+        <p>Symprod est un exercice de site de location d'appartement</p>
+        <p>Chadprod est un exercice de site d'inventaire de produit</p>
+        <div class="row">
+            <div class="col-3">&nbsp;</div>
+            <div class="col-3 m-1">
+                <a href="{{ path('symprod') }}" class="btn btn-primary btn-lg rounded" role="button">Voir Symprod</a>   
+            </div>
+            <div class="col-3 m-1">
+                <a href="{{ path('list_produit') }}" class="btn btn-primary btn-lg rounded" role="button">Voir Chadprod</a> 
+            </div>
+        </div>
+        
+        </center>
+    </div>
+
+{% endblock %}

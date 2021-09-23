@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{%block title %}Vous n'avez pas le droit d'accéder à cette page !{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Oups ! Vous n'avez pas les droits pour faire cette action !</h1>
+        <p>Une erreur est apparue, vous pouvez retouner à l'accueil de notre site !</p>
+        <a href="{{ path('index_prod')}}" class="btn btn-primary rounded p-1">Retour à l'accueil</a>
+
+    </div>
+{% endblock %}
